@@ -1,9 +1,11 @@
 package tutorial2;
 import java.util.Scanner;
 import java.lang.Math;
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
-        exercise4();
+        exercise6();
     }
     public static void exercise1() {
         Scanner in = new Scanner(System.in);
@@ -93,5 +95,41 @@ public class Main {
             }
         }
         System.out.printf("You pay %.2f, friend 1 pays %.2f, and friend 2 pays %.2f\n", yourPayment, friend1Payment, friend2Payment);
+    }
+
+    public static void exercise5() {
+        Scanner input = new Scanner(System.in);
+
+        // Input circle1's center x-, y-coordinates, and radius
+        System.out.print("Enter circle1's center x-, y-coordinates, and radius: ");
+        double x1 = input.nextDouble();
+        double y1 = input.nextDouble();
+        double r1 = input.nextDouble();
+
+        // Input circle2's center x-, y-coordinates, and radius
+        System.out.print("Enter circle2's center x-, y coordinates, and radius: ");
+        double x2 = input.nextDouble();
+        double y2 = input.nextDouble();
+        double r2 = input.nextDouble();
+
+        // Calculate the distance between the two centers
+        double dist = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+
+        // Check whether circle2 is inside circle1 or overlaps with circle1
+        if (dist <= Math.abs(r1 - r2)) {
+            System.out.println("circle2 is inside circle1");
+        } else if (dist <= r1 + r2) {
+            System.out.println("circle2 overlaps circle1");
+        } else {
+            System.out.println("circle2 does not overlap circle1");
+        }
+
+        input.close();
+    }
+
+    public static void exercise6() {
+        Random n = new Random();
+        int randomNumber = n.nextInt(101);
+        System.out.println("Random number: " + randomNumber);
     }
 }
