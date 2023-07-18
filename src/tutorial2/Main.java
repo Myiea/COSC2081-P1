@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        exercise6();
+        RandomNumber();
     }
     public static void exercise1() {
         Scanner in = new Scanner(System.in);
@@ -131,5 +131,17 @@ public class Main {
         Random n = new Random();
         int randomNumber = n.nextInt(101);
         System.out.println("Random number: " + randomNumber);
+    }
+
+    public static void RandomNumber() {
+        Random rand = new Random();
+        int randNum = 0;
+        int count = 0;
+
+        while (randNum != 100) {
+            randNum = rand.nextInt(101);
+            count++;
+        }
+        System.out.println("It took " + count + " tries to generate the number 101.");
     }
 }
