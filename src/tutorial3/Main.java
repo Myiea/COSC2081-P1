@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        exercise4();
+        exercise1();
     }
 
     public static int[] generateRandomArray(int N) {
@@ -17,7 +17,10 @@ public class Main {
     }
 
     public static void exercise1() {
-        int[] arr = generateRandomArray(10);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the bound for the array: ");
+        int N = scanner.nextInt();
+        int[] arr = generateRandomArray(N);
         for (int i = 0; i < arr.length; i++) System.out.print(arr[i] + " ");
     }
 
@@ -77,16 +80,17 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the size of the array: ");
         int n = input.nextInt();
-        int[] arr = new int[n]; // ask the user to input the size of the array then stored it
-        System.out.println("Enter int number to exchanges with the smallest in number in the array: ");
-        int from = input.nextInt();
+        int[] numbers = new int[n]; // ask the user to input the size of the array then stored it
         System.out.println("Enter the elements of the array:");
         // scanning through the array position from 0 -> n position
-        for (int i = 0 ;i < n; i++) arr[i] = input.nextInt();
+        for (int i = 0 ;i < n; i++) numbers[i] = input.nextInt();
 
-        int minIndex = getIndexMinFrom(arr, from);
-        int[] array = exchangeMinFrom(arr, from);
-        System.out.println(array);
+        int from = 0; // or any other index you want to start from
+        numbers = exchangeMinFrom(numbers, from);
+        System.out.print("Resulting array: ");
+        for(int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + " ");
+        }
 
     }
 
